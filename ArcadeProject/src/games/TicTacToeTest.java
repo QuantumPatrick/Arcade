@@ -1,5 +1,6 @@
 package games;
 
+import games.tictactoe.TicTacToe;
 
 class TicTacToeTest {
 

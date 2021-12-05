@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import games.tictactoe.TicTacToe;
+
 class TTTTest {
 
 	@Test
