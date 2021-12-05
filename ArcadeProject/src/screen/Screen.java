@@ -8,4 +8,12 @@ public abstract class Screen {
 	public void goToHome() {
 		System.out.println("Going to home screen");
 	}
+	
+	public void goToSignIn() {
+		new SignInScreen();
+	}
+	
+	public void goToLibrary() {
+		
+	}
 }
