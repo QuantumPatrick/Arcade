@@ -23,7 +23,7 @@ public class Game {
 		this.name = name;
 	}
 	
-	public void play() {
+	public void play() { //Gets overrided
 		System.out.println("Launching game");
 	}
 	
