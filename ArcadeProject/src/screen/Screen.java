@@ -1,19 +1,32 @@
 package screen;
 
+import people.User;
+
 public abstract class Screen {
+	User currentUser;
 	public Screen() {
 		
 	}
 	
 	public void goToHome() {
-		System.out.println("Going to home screen");
+		new HomeScreen();
 	}
 	
 	public void goToSignIn() {
 		new SignInScreen();
 	}
 	
-	public void goToLibrary() {
+	public static void goToLibrary() {
+		new LibraryScreen();
+	}
+
+	public static void goToProfile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void goToLeaderboard() {
+		// TODO Auto-generated method stub
 		
 	}
 }
