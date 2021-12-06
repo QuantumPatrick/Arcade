@@ -1,26 +1,56 @@
 package screen;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class SignInScreen extends Screen{
+	
+	//declare frame and buttons as fields so whole class can access
 	JFrame frame;
+	JButton b1;
+	JButton b2;
+	JButton b3;
+	JButton b4;
+	JButton b5;
+	JButton b6;
+	JButton b7;
+	JButton b8;
+	JButton b9;
+	JButton b10;
 	
 	public SignInScreen() {
+		
 		frame = new JFrame();
 		
 		JLabel text = new JLabel("Choose Your Profile", SwingConstants.CENTER);
 		
-		JButton b1 = new JButton("Jason");
-		JButton b2 = new JButton("Haseeb");
-		JButton b3 = new JButton("Patrick");
-		JButton b4 = new JButton("Steve");
-		JButton b5 = new JButton("Guest");
-		JButton b6 = new JButton("Rusty");
-		JButton b7 = new JButton("Isabel");
-		JButton b8 = new JButton("Ary");
-		JButton b9 = new JButton("Chris");
-		JButton b10 = new JButton("New User");
+		//button instantiation
+		b1 = new JButton("Jason");
+		b2 = new JButton("Haseeb");
+		b3 = new JButton("Patrick");
+		b4 = new JButton("Steve");
+		b5 = new JButton("Guest");
+		b6 = new JButton("Rusty");
+		b7 = new JButton("Isabel");
+		b8 = new JButton("Ary");
+		b9 = new JButton("Chris");
+		b10 = new JButton("New User");
 		
+		//add listener items to each button
+		b1.addActionListener(new ClickListener());
+		b2.addActionListener(new ClickListener());
+		b3.addActionListener(new ClickListener());
+		b4.addActionListener(new ClickListener());
+		b5.addActionListener(new ClickListener());
+		b6.addActionListener(new ClickListener());
+		b7.addActionListener(new ClickListener());
+		b8.addActionListener(new ClickListener());
+		b9.addActionListener(new ClickListener());
+		b10.addActionListener(new ClickListener());
+
+		//add buttons to frame
 		frame.add(text);
 		frame.add(b1);
 		frame.add(b2);
@@ -34,6 +64,7 @@ public class SignInScreen extends Screen{
 		frame.add(b10);
 		//System.out.println(b1.getLabel()); // USE THIS TO GET PROFILE NAMES
 		
+		//set button parameters
 		text.setBounds(200,0,200,50);
 		b1.setBounds(150,50,100,50);
 		b2.setBounds(150,150,100,50);
@@ -50,6 +81,47 @@ public class SignInScreen extends Screen{
 		frame.setSize(600,600);
 		frame.setLayout(null);
 		frame.setVisible(true);
+	}
+	
+	private class ClickListener implements ActionListener {
+
+		//test if action happens
+		public void actionPerformed(ActionEvent e){
+			
+			//check if action is button being clicked
+			if (e.getSource() == b1) {
+				
+				//if so, hide current screen
+				frame.setVisible(false);
+			}
+			else if (e.getSource() == b2) {
+				frame.setVisible(false);
+			}
+			else if (e.getSource() == b3) {
+				frame.setVisible(false);
+			}
+			else if (e.getSource() == b4) {
+				frame.setVisible(false);
+			}
+			else if (e.getSource() == b5) {
+				frame.setVisible(false);
+			}
+			else if (e.getSource() == b6) {
+				frame.setVisible(false);
+			}
+			else if (e.getSource() == b7) {
+				frame.setVisible(false);
+			}
+			else if (e.getSource() == b8) {
+				frame.setVisible(false);
+			}
+			else if (e.getSource() == b9) {
+				frame.setVisible(false);
+			}
+			else if (e.getSource() == b10) {
+				frame.setVisible(false);
+			}
+		}
 	}
 	
 	public static void main(String args[]) {

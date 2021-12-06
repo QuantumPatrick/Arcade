@@ -1,8 +1,10 @@
 package screen;
 
+import javax.swing.JFrame;
+
 import people.User;
 
-public abstract class Screen { //Still need to be abstract?
+public abstract class Screen extends JFrame{ //Still need to be abstract?
 	User currentUser;
 	public Screen() {
 		
