@@ -2,13 +2,14 @@ package screen;
 
 import people.User;
 
-public abstract class Screen {
+public abstract class Screen { //Still need to be abstract?
 	User currentUser;
 	public Screen() {
 		
 	}
-	
-	public void goToHome() {
+	//FIXME: Need to create the screen objects ONCE
+	//FIXME: Need to find a way where everytime goToHome(), goToSignIn(), goToLibrary(), etc. is called doesn't create a new object.
+	public void goToHome() { 
 		new HomeScreen();
 	}
 	
@@ -16,8 +17,8 @@ public abstract class Screen {
 		new SignInScreen();
 	}
 	
-	public static void goToLibrary() {
-		new LibraryScreen();
+	public static void goToLibrary() { //FIXME: Still needs to add leaderboardscreen
+		//new LibraryScreen(currentUser);  
 	}
 
 	public static void goToProfile() {
