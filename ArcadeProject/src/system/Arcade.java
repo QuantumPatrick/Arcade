@@ -12,15 +12,15 @@ import people.*;
 
 public class Arcade implements Serializable {
 	private ArrayList<User> userList;
-	private Leaderboard lb;
+	private static Leaderboard lb;
 	
 	public Arcade(Leaderboard lb) {
 		userList = new ArrayList<User>();
 		this.lb = lb;
 	}
 	
-	public Leaderboard getLeaderboard() {
-		return this.lb;
+	public static Leaderboard getLeaderboard() {
+		return lb;
 	}
 	
 	public ArrayList<User> getUserList(){
