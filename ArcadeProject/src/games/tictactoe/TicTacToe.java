@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.util.Scanner;
 
 import games.Game;
+import system.Arcade;
 
 public class TicTacToe extends Game implements ActionListener{
 

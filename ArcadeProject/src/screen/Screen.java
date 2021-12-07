@@ -33,7 +33,7 @@ public class Screen extends JFrame{ //Still need to be abstract?
 	}
 
 	public void goToLeaderboard() {
-		// TODO Auto-generated method stub
+		new LeaderboardScreen(frame);
 		
 	}
 	

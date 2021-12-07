@@ -202,7 +202,6 @@ public class SnakeWindow extends JFrame{
 			int option = JOptionPane.showConfirmDialog(null, p, "Game over", JOptionPane.PLAIN_MESSAGE);
 			if (option == JOptionPane.OK_OPTION) {
 				super.removeAll();
-				super.dispose();
 			}
 			
 		}
