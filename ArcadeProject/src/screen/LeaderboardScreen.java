@@ -1,12 +1,16 @@
 package screen;
 
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
 import people.*;
 
 public class LeaderboardScreen extends Screen{
 	private ArrayList<User> scorers;
 	
-	public LeaderboardScreen() {
+	public LeaderboardScreen(JFrame frame) {
+		super(frame);
 		scorers = new ArrayList<User>();
 	}
 	

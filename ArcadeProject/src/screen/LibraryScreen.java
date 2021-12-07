@@ -21,8 +21,9 @@ public class LibraryScreen extends Screen {
 	private User u;
 	private LeaderboardScreen l; //FIXME: Do we need a leaderboard class separate to the leaderboardscreen class?
 	
-	public LibraryScreen(User u, LeaderboardScreen l) {
-		frame = new JFrame();
+	public LibraryScreen(User u, LeaderboardScreen l, JFrame frame) {
+		super(frame);
+		this.frame = frame;
 		
 		lib = new Library();
 		
@@ -59,6 +60,7 @@ public class LibraryScreen extends Screen {
 		frame.setLayout(null);
 		frame.setVisible(true);
 	}
+	
 	
 	private class ButtonListener implements ActionListener {
 
