@@ -8,7 +8,7 @@ class TicTacToeTest {
 	
 	//test case: tie
 	TicTacToe game1 = new TicTacToe();
-	
+	game1.play();
 //	game1.setName("Round 1");
 //	
 //	game1.placeMarker("X",0,0);

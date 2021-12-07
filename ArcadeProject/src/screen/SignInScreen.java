@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import people.User;
+import system.Arcade;
 
 public class SignInScreen extends Screen{
 	
@@ -91,7 +92,7 @@ public class SignInScreen extends Screen{
 		frame.repaint();
 		User u1 = new User();
 		u1.setName(b1.getText());
-		super.setUser(u1);
+		Arcade.setCurrentUser(u1);
 		super.goToHome();
 	}
 	void handleToLeader() {

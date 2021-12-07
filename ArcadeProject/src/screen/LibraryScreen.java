@@ -34,7 +34,7 @@ public class LibraryScreen extends Screen {
 		snake = new Snake();
 		snake.setName("Snake");
 		
-		this.u = u; //To know what user will play the games
+		this.u = Arcade.getCurrentUser(); //To know what user will play the games
 		
 		lib.addGame(ttt);
 		lib.addGame(snake);

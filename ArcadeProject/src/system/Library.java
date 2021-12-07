@@ -9,12 +9,14 @@ import screen.LeaderboardScreen;
 public class Library {
 	// declaration of library of games
 		private ArrayList<Game> library; //Stores the games into one library
+		private User user;
 		
 		// default constructor of screen 
 		// FIXME: Not sure who wrote this, but this currently rebuilds the library every time we return to the screen
 		// 		  Can we find a better way to do this? Do we want this saved to a serialized file too? -Patrick
 		public Library() {
 			library = new ArrayList<Game>();
+			user = Arcade.getCurrentUser();
 		}
 		
 		public void playGame(Game g, User u, Leaderboard l) { //Plays the game passing in the game, the user playing the game, and the leaderboards (so we can modify leaderboards if user gets new high score)

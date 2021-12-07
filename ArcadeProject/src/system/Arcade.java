@@ -12,11 +12,21 @@ import people.*;
 
 public class Arcade implements Serializable {
 	private ArrayList<User> userList;
-	private static Leaderboard lb;
 	
+	private static Leaderboard lb;
+	private static User currentUser;
+
 	public Arcade(Leaderboard lb) {
 		userList = new ArrayList<User>();
 		this.lb = lb;
+	}
+	
+	public static void setCurrentUser(User userIn) {
+		currentUser = userIn;
+	}
+	
+	public static User getCurrentUser() {
+		return currentUser;
 	}
 	
 	public static Leaderboard getLeaderboard() {

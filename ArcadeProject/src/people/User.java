@@ -15,6 +15,8 @@ public class User implements Serializable {
 	// constructors
 	public User() {
 		this.name = "undefined";
+		this.gamesPlayed = new ArrayList<Game>();
+		this.highScores = new ArrayList<Integer>();
 	}
 	
 	public User(String name) { //FIXME: does this need to be declared as public?
