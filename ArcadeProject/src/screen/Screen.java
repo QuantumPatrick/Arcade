@@ -37,4 +37,8 @@ public class Screen extends JFrame{ //Still need to be abstract?
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void setUser(User u) {
+		this.currentUser = u;
+	}
 }

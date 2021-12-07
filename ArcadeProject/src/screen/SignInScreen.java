@@ -91,7 +91,7 @@ public class SignInScreen extends Screen{
 		frame.repaint();
 		User u1 = new User();
 		u1.setName(b1.getText());
-		super.currentUser=u1;
+		super.setUser(u1);
 		super.goToHome();
 	}
 	void handleToLeader() {

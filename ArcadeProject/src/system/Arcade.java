@@ -20,7 +20,7 @@ public class Arcade implements Serializable {
 	}
 	
 	public Leaderboard getLeaderboard() {
-		return this.getLeaderboard();
+		return this.lb;
 	}
 	
 	public ArrayList<User> getUserList(){
