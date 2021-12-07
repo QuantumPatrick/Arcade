@@ -15,6 +15,7 @@ public class LibraryScreen extends Screen {
 	private JFrame frame;
 	private JButton tttButton;
 	private JButton snakeButton;
+	private JButton backButton;
 	
 	private TicTacToe ttt;
 	private Snake snake;
@@ -43,17 +44,23 @@ public class LibraryScreen extends Screen {
 		
 		tttButton = new JButton("TicTacToe");
 		snakeButton = new JButton("Snake");
+		backButton = new JButton("Back");
+
 		
 		tttButton.addActionListener(new ButtonListener());
 		snakeButton.addActionListener(new ButtonListener());
+		backButton.addActionListener(new ButtonListener());
 		
 		frame.add(text);
 		frame.add(tttButton);
 		frame.add(snakeButton);
+		frame.add(backButton);
 		
 		text.setBounds(200,0,200,50);
 		tttButton.setBounds(150,50,100,50);
 		snakeButton.setBounds(350,50,100,50);
+		backButton.setBounds(25,25,100,50);
+		
 		
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setSize(600,600);
@@ -61,6 +68,12 @@ public class LibraryScreen extends Screen {
 		frame.setVisible(true);
 	}
 	
+	public void handleGoToBack() {
+		frame.getContentPane().removeAll();
+		frame.repaint();
+		super.goToHome();
+	}
+
 	
 	private class ButtonListener implements ActionListener {
 
@@ -73,6 +86,9 @@ public class LibraryScreen extends Screen {
 			}
 			else if (source.equals(snakeButton)) {
 				lib.playGame(snake, u, Arcade.getLeaderboard());
+			}
+			else if (source.equals(backButton)) {
+				handleGoToBack();
 			}
 		}
 	}

@@ -30,8 +30,10 @@ public class SnakeWindow extends JFrame{
 	private int yDot;
 	private char direction = 'r';
 	
+	SnakePanel sp;
+	
 	public SnakeWindow(){
-		SnakePanel sp = new SnakePanel();
+		sp = new SnakePanel();
 		this.add(sp); //Needs to be first
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setTitle("Snake");
@@ -198,9 +200,10 @@ public class SnakeWindow extends JFrame{
 			Object[] p = {gameOverLabel};
 			
 			int option = JOptionPane.showConfirmDialog(null, p, "Game over", JOptionPane.PLAIN_MESSAGE);
-//			if (option == JOptionPane.OK_OPTION) {
-//				
-//			}
+			if (option == JOptionPane.OK_OPTION) {
+				super.removeAll();
+				super.dispose();
+			}
 			
 		}
 	}

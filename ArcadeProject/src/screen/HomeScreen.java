@@ -11,6 +11,7 @@ public class HomeScreen extends Screen{
 	JButton leaderboard;
 	JButton library;
 	JButton profile;
+	JButton back;
 	
 	public HomeScreen(JFrame frame) {
 		super(frame);
@@ -21,20 +22,24 @@ public class HomeScreen extends Screen{
 		leaderboard = new JButton("View Leaderboards");
 		library = new JButton("Game Library");
 		profile = new JButton("View Profile");
+		back = new JButton("Back");
 		
 		leaderboard.addActionListener(new ButtonListener());
 		library.addActionListener(new ButtonListener());
 		profile.addActionListener(new ButtonListener());
+		back.addActionListener(new ButtonListener());
 		
 		frame.add(text);
 		frame.add(leaderboard);
 		frame.add(library);
 		frame.add(profile);
+		frame.add(back);
 		
 		text.setBounds(200,0,200,50);
 		leaderboard.setBounds(200,50,200,100);
 		library.setBounds(200,200,200,100);
 		profile.setBounds(200,350,200,100);
+		back.setBounds(25,25,100,50);
 		
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setSize(600,600);
@@ -58,7 +63,12 @@ public class HomeScreen extends Screen{
 		frame.getContentPane().removeAll();
 		frame.repaint();
 		super.goToProfile();
+	}
 
+	public void handleToBack() {
+		frame.getContentPane().removeAll();
+		frame.repaint();
+		super.goToSignIn();
 	}
 	
 	public static void main(String args[]) {
@@ -78,6 +88,9 @@ public class HomeScreen extends Screen{
 			}
 			else if (e.getSource() == profile) {
 				handleToProfile();
+			}
+			else if (e.getSource() == back) {
+				handleToBack();
 			}
 
 		}

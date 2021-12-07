@@ -29,8 +29,7 @@ public class Screen extends JFrame{ //Still need to be abstract?
 	}
 
 	public void goToProfile() {
-		// TODO Auto-generated method stub
-		
+		new ProfileScreen(frame);
 	}
 
 	public void goToLeaderboard() {

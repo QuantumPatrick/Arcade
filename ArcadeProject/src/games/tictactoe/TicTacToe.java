@@ -265,6 +265,7 @@ public class TicTacToe extends Game implements ActionListener{
 		if (option == JOptionPane.YES_OPTION) {
 			playAgain();
 		} else if(option == JOptionPane.NO_OPTION){
+			numSelected = 99;
 			panel.removeAll();
 			frame.dispose();
 		}
@@ -283,7 +284,9 @@ public class TicTacToe extends Game implements ActionListener{
 		int option = JOptionPane.showConfirmDialog(null, "You lose! \n" + "Want to play again?", "Computer wins!", JOptionPane.YES_NO_OPTION);
 		if (option == JOptionPane.YES_OPTION) {
 			playAgain();
-		} else if(option == JOptionPane.NO_OPTION){
+		}
+		else if(option == JOptionPane.NO_OPTION){
+			numSelected = 99;
 			panel.removeAll();
 			frame.dispose();
 		}
