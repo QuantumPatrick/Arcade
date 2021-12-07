@@ -17,7 +17,7 @@ public class Library {
 			library = new ArrayList<Game>();
 		}
 		
-		public void playGame(Game g, User u, LeaderboardScreen l) { //Plays the game passing in the game, the user playing the game, and the leaderboards (so we can modify leaderboards if user gets new high score)
+		public void playGame(Game g, User u, Leaderboard l) { //Plays the game passing in the game, the user playing the game, and the leaderboards (so we can modify leaderboards if user gets new high score)
 			boolean playAgain = true;
 			Scanner againResponse = new Scanner(System.in); //User gets asked if they want to play again
 			String response;
@@ -66,7 +66,7 @@ public class Library {
 			}
 		}
 		
-		public void detectHighScore(int rec, Game g, User u, LeaderboardScreen l) {
+		public void detectHighScore(int rec, Game g, User u, Leaderboard l) {
 			if (l.getScorers().isEmpty()) {
 				System.out.println("New high score!");
 				l.getScorers().add(u);

@@ -7,14 +7,12 @@ import people.User;
 
 public class Screen extends JFrame{ //Still need to be abstract?
 	
-	User currentUser;
-	JFrame frame;
+	protected User currentUser;
+	public JFrame frame;
 	
 	public Screen(JFrame frame) {
 		this.frame = frame;
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setSize(600,600);
-		frame.setVisible(true);
+
 	}
 	//FIXME: Need to create the screen objects ONCE
 	//FIXME: Need to find a way where everytime goToHome(), goToSignIn(), goToLibrary(), etc. is called doesn't create a new object.
@@ -26,16 +24,16 @@ public class Screen extends JFrame{ //Still need to be abstract?
 		new SignInScreen(frame);
 	}
 	
-	public static void goToLibrary() { //FIXME: Still needs to add leaderboardscreen
-		//new LibraryScreen(currentUser);  
+	public void goToLibrary() { //FIXME: Still needs to add leaderboardscreen
+		new LibraryScreen(currentUser,frame);  
 	}
 
-	public static void goToProfile() {
+	public void goToProfile() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public static void goToLeaderboard() {
+	public void goToLeaderboard() {
 		// TODO Auto-generated method stub
 		
 	}

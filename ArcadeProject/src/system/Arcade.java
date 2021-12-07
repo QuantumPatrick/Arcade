@@ -12,9 +12,11 @@ import people.*;
 
 public class Arcade implements Serializable {
 	private ArrayList<User> userList;
+	private Leaderboard lb;
 	
 	public Arcade() {
 		userList = new ArrayList<User>();
+		Leaderboard lb = new Leaderboard();
 	}
 	
 	public ArrayList<User> getUserList(){

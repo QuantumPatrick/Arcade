@@ -19,9 +19,10 @@ public class LibraryScreen extends Screen {
 	private TicTacToe ttt;
 	private Snake snake;
 	private User u;
-	private LeaderboardScreen l; //FIXME: Do we need a leaderboard class separate to the leaderboardscreen class?
+	private Leaderboard l; //FIXME: Do we need a leaderboard class separate to the leaderboardscreen class?
 	
-	public LibraryScreen(User u, LeaderboardScreen l, JFrame frame) {
+	public LibraryScreen(User u, JFrame frame) {
+	//public LibraryScreen(User u, JFrame frame) {
 		super(frame);
 		this.frame = frame;
 		
@@ -34,7 +35,6 @@ public class LibraryScreen extends Screen {
 		snake.setName("Snake");
 		
 		this.u = u; //To know what user will play the games
-		this.l = l;
 		
 		lib.addGame(ttt);
 		lib.addGame(snake);

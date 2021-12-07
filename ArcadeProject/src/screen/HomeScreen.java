@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class HomeScreen {
+public class HomeScreen extends Screen{
 	JFrame frame;
 	
 	JButton leaderboard;
@@ -13,6 +13,7 @@ public class HomeScreen {
 	JButton profile;
 	
 	public HomeScreen(JFrame frame) {
+		super(frame);
 		this.frame = frame;
 		
 		JLabel text = new JLabel("Welcome!", SwingConstants.CENTER);
@@ -41,6 +42,25 @@ public class HomeScreen {
 		frame.setVisible(true);
 	}
 	
+	public void handleToLibrary() {
+		frame.getContentPane().removeAll();
+		frame.repaint();
+		super.goToLibrary();
+	}
+
+	public void handleToLeaderboard() {
+		frame.getContentPane().removeAll();
+		frame.repaint();
+		super.goToLeaderboard();
+	}
+	
+	public void handleToProfile() {
+		frame.getContentPane().removeAll();
+		frame.repaint();
+		super.goToProfile();
+
+	}
+	
 	public static void main(String args[]) {
 		//new HomeScreen();
 	}
@@ -49,21 +69,17 @@ public class HomeScreen {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JButton source = (JButton)(e.getSource());
 			
-			if (source.equals(library)) {
-				Screen.goToLibrary();
-				frame.removeAll(); //FIXME: this is a terrible solution
-				frame.repaint();
+			if (e.getSource() == leaderboard) {
+				handleToLeaderboard();
 			}
-			else if (source.equals(profile)) {
-				Screen.goToProfile();
-				frame.setVisible(false); //FIXME: this is a terrible solution
+			else if (e.getSource() == library) {
+				handleToLibrary();
 			}
-			else if (source.equals(leaderboard)) {
-				Screen.goToLeaderboard();
-				frame.setVisible(false); //FIXME: this is a terrible solution
+			else if (e.getSource() == profile) {
+				handleToProfile();
 			}
+
 		}
 	}
 }

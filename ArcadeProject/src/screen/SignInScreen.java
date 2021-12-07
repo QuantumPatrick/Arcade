@@ -89,6 +89,9 @@ public class SignInScreen extends Screen{
 	void handleToHome() {
 		frame.getContentPane().removeAll();
 		frame.repaint();
+		User u1 = new User();
+		u1.setName(b1.getText());
+		super.currentUser=u1;
 		super.goToHome();
 	}
 	void handleToLeader() {
@@ -109,9 +112,6 @@ public class SignInScreen extends Screen{
 			
 			//check if action is button being clicked
 			if (e.getSource() == b1) {
-				
-				User u1 = new User();
-				u1.setName(b1.getText());
 				
 				//if so, hide current screen
 				handleToHome();
