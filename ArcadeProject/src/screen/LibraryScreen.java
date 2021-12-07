@@ -69,10 +69,10 @@ public class LibraryScreen extends Screen {
 			JButton source = (JButton)(e.getSource());
 			
 			if (source.equals(tttButton)) { //FIXME: Still needs to implemented
-				System.out.println("tttButton pressed");
+				lib.playGame(ttt, u, Arcade.getLeaderboard());
 			}
 			else if (source.equals(snakeButton)) {
-				lib.playGame(snake, u, l);
+				lib.playGame(snake, u, Arcade.getLeaderboard());
 			}
 		}
 	}

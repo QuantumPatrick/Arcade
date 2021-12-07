@@ -27,6 +27,10 @@ public class TicTacToe extends Game implements ActionListener{
 	private JLabel streakLabel = new JLabel();
 	
 	public TicTacToe() {
+		
+	}
+	
+	public void play() {
 		frame.setTitle("TicTacToe");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setSize(600,600);
@@ -61,17 +65,6 @@ public class TicTacToe extends Game implements ActionListener{
 			buttons[i].addActionListener(this);
 			buttons[i].setEnabled(true);
 		}
-		
-//		this.board = new ArrayList<ArrayList<String>>();	//initializes board for game
-//		
-//		for (int i = 0; i < 3; i++) {						//creates 3 columns
-//			this.board.add(new ArrayList<String>());
-//			
-//			for (int j = 0; j < 3; j++) {					//creates 3 rows
-//				this.board.get(i).add("");
-//				
-//			} 
-//		} 
 	}
 	
 	public void actionPerformed(ActionEvent e) {
