@@ -9,12 +9,12 @@ import screen.SignInScreen;
 public class Driver {
 	
 	public static void main(String args[]) {
-		Arcade arcade = new Arcade();
+		Leaderboard lb = new Leaderboard();
+		Arcade arcade = new Arcade(lb);
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setSize(600,600);
 		frame.setVisible(true);
-		Leaderboard lb = new Leaderboard();
 		Screen mainScreen = new Screen(frame);
 		mainScreen.goToSignIn();
 	}

@@ -14,9 +14,13 @@ public class Arcade implements Serializable {
 	private ArrayList<User> userList;
 	private Leaderboard lb;
 	
-	public Arcade() {
+	public Arcade(Leaderboard lb) {
 		userList = new ArrayList<User>();
-		Leaderboard lb = new Leaderboard();
+		this.lb = lb;
+	}
+	
+	public Leaderboard getLeaderboard() {
+		return this.getLeaderboard();
 	}
 	
 	public ArrayList<User> getUserList(){
