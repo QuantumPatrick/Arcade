@@ -48,7 +48,7 @@ public class LeaderboardScreen extends Screen{
 			
 		back.setBounds(25,25,100,50);
 		
-		heading.setBounds(200, 50, 400, 100);
+		heading.setBounds(150, 50, 400, 100);
 		p1.setBounds(200, 100, 200, 100);
 		p2.setBounds(200, 150, 200, 100);
 		p3.setBounds(200, 200, 200, 100);

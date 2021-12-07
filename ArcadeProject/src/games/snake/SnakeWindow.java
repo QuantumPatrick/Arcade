@@ -88,7 +88,8 @@ public class SnakeWindow extends JFrame{
 					if (i == 0) {
 						g.setColor(Color.GREEN);
 						g.fillRect(x[i], y[i], boxSize, boxSize);
-					} else {
+					}
+					else {
 						g.setColor(Color.BLUE);
 						g.fillRect(x[i], y[i], boxSize, boxSize);
 					}
@@ -97,7 +98,8 @@ public class SnakeWindow extends JFrame{
 					FontMetrics metrics = getFontMetrics(g.getFont());
 					g.drawString("Score: " + score, screenWidth - metrics.stringWidth("Score: " + score)- 50, g.getFont().getSize());
 				}
-			} else {
+			}
+			else {
 				gameOver();
 			}
 		}

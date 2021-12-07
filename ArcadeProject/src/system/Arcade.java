@@ -16,9 +16,9 @@ public class Arcade implements Serializable {
 	private static Leaderboard lb;
 	private static User currentUser;
 
-	public Arcade(Leaderboard lb) {
+	public Arcade(Leaderboard lb1) {
 		userList = new ArrayList<User>();
-		this.lb = lb;
+		lb = lb1;
 	}
 	
 	public static void setCurrentUser(User userIn) {
