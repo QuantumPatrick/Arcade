@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import people.User;
+
 public class SignInScreen extends Screen{
 	
 	//declare frame and buttons as fields so whole class can access
@@ -84,6 +86,22 @@ public class SignInScreen extends Screen{
 		
 	}
 	
+	void handleToHome() {
+		frame.getContentPane().removeAll();
+		frame.repaint();
+		super.goToHome();
+	}
+	void handleToLeader() {
+		frame.getContentPane().removeAll();
+		frame.repaint();
+		super.goToLeaderboard();
+	}
+	void handleToLibrary() {
+		frame.getContentPane().removeAll();
+		frame.repaint();
+		super.goToLibrary();
+	}
+	
 	private class ClickListener implements ActionListener {
 
 		//test if action happens
@@ -92,37 +110,50 @@ public class SignInScreen extends Screen{
 			//check if action is button being clicked
 			if (e.getSource() == b1) {
 				
+				User u1 = new User();
+				u1.setName(b1.getText());
+				
 				//if so, hide current screen
-				frame.removeAll();
+				handleToHome();
 			}
 			else if (e.getSource() == b2) {
-				frame.setVisible(false);
+				frame.remove(panel);
+				handleToHome();
 			}
 			else if (e.getSource() == b3) {
-				frame.setVisible(false);
+				frame.remove(panel);
+				handleToHome();
 			}
 			else if (e.getSource() == b4) {
-				frame.setVisible(false);
+				frame.remove(panel);
+				handleToHome();
 			}
 			else if (e.getSource() == b5) {
-				frame.setVisible(false);
+				frame.remove(panel);
+				handleToHome();
 			}
 			else if (e.getSource() == b6) {
-				frame.setVisible(false);
+				frame.remove(panel);
+				handleToHome();
 			}
 			else if (e.getSource() == b7) {
-				frame.setVisible(false);
+				frame.remove(panel);
+				handleToHome();
 			}
 			else if (e.getSource() == b8) {
-				frame.setVisible(false);
+				frame.remove(panel);
+				handleToHome();
 			}
 			else if (e.getSource() == b9) {
-				frame.setVisible(false);
+				frame.remove(panel);
+				handleToHome();
 			}
 			else if (e.getSource() == b10) {
-				frame.setVisible(false);
+				frame.remove(panel);
+				handleToHome();
 			}
 		}
+		
 	}
 	
 	public static void main(String args[]) {

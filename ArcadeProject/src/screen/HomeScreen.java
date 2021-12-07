@@ -53,7 +53,8 @@ public class HomeScreen {
 			
 			if (source.equals(library)) {
 				Screen.goToLibrary();
-				frame.setVisible(false); //FIXME: this is a terrible solution
+				frame.removeAll(); //FIXME: this is a terrible solution
+				frame.repaint();
 			}
 			else if (source.equals(profile)) {
 				Screen.goToProfile();
