@@ -12,8 +12,8 @@ public class HomeScreen {
 	JButton library;
 	JButton profile;
 	
-	public HomeScreen() {
-		frame = new JFrame();
+	public HomeScreen(JFrame frame) {
+		this.frame = frame;
 		
 		JLabel text = new JLabel("Welcome!", SwingConstants.CENTER);
 		
@@ -42,7 +42,7 @@ public class HomeScreen {
 	}
 	
 	public static void main(String args[]) {
-		new HomeScreen();
+		//new HomeScreen();
 	}
 	
 	private class ButtonListener implements ActionListener {

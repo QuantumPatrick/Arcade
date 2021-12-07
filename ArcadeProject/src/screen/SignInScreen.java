@@ -8,7 +8,7 @@ import javax.swing.*;
 public class SignInScreen extends Screen{
 	
 	//declare frame and buttons as fields so whole class can access
-	JFrame frame;
+	JPanel panel;
 	JButton b1;
 	JButton b2;
 	JButton b3;
@@ -20,9 +20,9 @@ public class SignInScreen extends Screen{
 	JButton b9;
 	JButton b10;
 	
-	public SignInScreen() {
-		
-		frame = new JFrame();
+	public SignInScreen(JFrame frame) {
+		super(frame);
+		panel = new JPanel();
 		
 		JLabel text = new JLabel("Choose Your Profile", SwingConstants.CENTER);
 		
@@ -51,17 +51,17 @@ public class SignInScreen extends Screen{
 		b10.addActionListener(new ClickListener());
 
 		//add buttons to frame
-		frame.add(text);
-		frame.add(b1);
-		frame.add(b2);
-		frame.add(b3);
-		frame.add(b4);
-		frame.add(b5);
-		frame.add(b6);
-		frame.add(b7);
-		frame.add(b8);
-		frame.add(b9);
-		frame.add(b10);
+		panel.add(text);
+		panel.add(b1);
+		panel.add(b2);
+		panel.add(b3);
+		panel.add(b4);
+		panel.add(b5);
+		panel.add(b6);
+		panel.add(b7);
+		panel.add(b8);
+		panel.add(b9);
+		panel.add(b10);
 		//System.out.println(b1.getLabel()); // USE THIS TO GET PROFILE NAMES
 		
 		//set button parameters
@@ -77,10 +77,11 @@ public class SignInScreen extends Screen{
 		b9.setBounds(350,350,100,50);
 		b10.setBounds(350,450,100,50);
 		
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setSize(600,600);
-		frame.setLayout(null);
-		frame.setVisible(true);
+		frame.add(panel);
+		panel.setVisible(true);
+		panel.setSize(600, 600);
+		panel.setLayout(null);
+		
 	}
 	
 	private class ClickListener implements ActionListener {
@@ -92,7 +93,7 @@ public class SignInScreen extends Screen{
 			if (e.getSource() == b1) {
 				
 				//if so, hide current screen
-				frame.setVisible(false);
+				frame.removeAll();
 			}
 			else if (e.getSource() == b2) {
 				frame.setVisible(false);
@@ -125,6 +126,6 @@ public class SignInScreen extends Screen{
 	}
 	
 	public static void main(String args[]) {
-		new SignInScreen();
+		//new SignInScreen();
 	}
 }

@@ -1,5 +1,7 @@
 package system;
 
+import javax.swing.JFrame;
+
 import screen.Screen;
 import screen.SignInScreen;
 
@@ -7,7 +9,9 @@ public class Driver {
 	
 	public static void main(String args[]) {
 		Arcade arcade = new Arcade();
-		Screen SignInScreen = new SignInScreen();
+		JFrame frame = new JFrame();
+		Screen mainScreen = new Screen(frame);
+		mainScreen.goToSignIn();
 	}
 	
 	
