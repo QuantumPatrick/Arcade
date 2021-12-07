@@ -37,6 +37,7 @@ public class TicTacToe extends Game implements ActionListener{
 		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setLayout(new BorderLayout());
 		frame.setVisible(true);
+		System.out.println("make visible");
 		
 		streakLabel.setBackground(Color.WHITE);
 		streakLabel.setForeground(Color.BLACK);
@@ -234,6 +235,19 @@ public class TicTacToe extends Game implements ActionListener{
 		if((buttons[2].getText().equals("O")) && (buttons[5].getText().equals("O")) && (buttons[8].getText().equals("O"))) {
 			computerWins(2,5,8);
 		}
+		
+		
+		if (!buttons[0].getText().equals("") && !buttons[1].getText().equals("") && !buttons[2].getText().equals("") &&
+				!buttons[3].getText().equals("") && !buttons[4].getText().equals("") && !buttons[5].getText().equals("") &&
+				!buttons[6].getText().equals("") && !buttons[7].getText().equals("") && !buttons[8].getText().equals("")){
+			int option = JOptionPane.showConfirmDialog(null, "Tie! \n" + "Want to play again?", "Tie Game!", JOptionPane.YES_NO_OPTION);
+			if (option == JOptionPane.YES_OPTION) {
+				playAgain();
+			} else if(option == JOptionPane.NO_OPTION){
+				panel.removeAll();
+				frame.dispose();
+			}
+		}
 
 	}
 	
@@ -251,6 +265,7 @@ public class TicTacToe extends Game implements ActionListener{
 		if (option == JOptionPane.YES_OPTION) {
 			playAgain();
 		} else if(option == JOptionPane.NO_OPTION){
+			panel.removeAll();
 			frame.dispose();
 		}
 	}
@@ -269,6 +284,7 @@ public class TicTacToe extends Game implements ActionListener{
 		if (option == JOptionPane.YES_OPTION) {
 			playAgain();
 		} else if(option == JOptionPane.NO_OPTION){
+			panel.removeAll();
 			frame.dispose();
 		}
 	}

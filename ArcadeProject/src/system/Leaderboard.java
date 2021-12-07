@@ -9,7 +9,7 @@ public class Leaderboard {
 	ArrayList<User> scores;
 	
 	public Leaderboard() {
-		scores = new ArrayList<User>();
+		ArrayList<User> scores = new ArrayList<User>();
 	}
 	
 	public ArrayList<User> getScorers() {
