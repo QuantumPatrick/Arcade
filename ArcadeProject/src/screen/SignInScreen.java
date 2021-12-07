@@ -23,62 +23,91 @@ public class SignInScreen extends Screen{
 	JButton b9;
 	JButton b10;
 	
+	JButton addNewUser;
+	JButton newUserButton;
+	
+	JTextField newUserName;
+	
 	public SignInScreen(JFrame frame) {
 		super(frame);
+				
 		panel = new JPanel();
 		
+		for (int i = 0; i < Arcade.getUserList().size(); i++) {
+			JButton temp = new JButton(Arcade.getUserList().get(i).getName());
+			
+			if (i % 2 == 0) {
+				temp.setBounds(150,50 + 100*(i/2),100,50);
+			}
+			else {
+				temp.setBounds(350,50 + 100*(i/2),100,50);
+			}
+			if (i == 0) {
+				b1 = temp;
+				b1.addActionListener(new ClickListener());
+				panel.add(b1);
+			}
+			else if (i == 1) {
+				b2 = temp;
+				b2.addActionListener(new ClickListener());
+				panel.add(b2);
+			}
+			else if (i == 2) {
+				b3 = temp;
+				b3.addActionListener(new ClickListener());
+				panel.add(b3);
+			}
+			else if (i == 3) {
+				b4 = temp;
+				b4.addActionListener(new ClickListener());
+				panel.add(b4);
+			}
+			else if (i == 4) {
+				b5 = temp;
+				b5.addActionListener(new ClickListener());
+				panel.add(b5);
+			}
+			else if (i == 5) {
+				b6 = temp;
+				b6.addActionListener(new ClickListener());
+				panel.add(b6);
+			}
+			else if (i == 6) {
+				b7 = temp;
+				b7.addActionListener(new ClickListener());
+				panel.add(b7);
+			}
+			else if (i == 7) {
+				b8 = temp;
+				b8.addActionListener(new ClickListener());
+				panel.add(b8);
+			}
+			else if (i == 8) {
+				b9 = temp;
+				b9.addActionListener(new ClickListener());
+				panel.add(b9);
+			}
+			else if (i == 9) {
+				b10 = temp;
+				b10.addActionListener(new ClickListener());
+				panel.add(b10);
+			}			
+		}
+		
+		addNewUser = new JButton("New User");
+		addNewUser.addActionListener(new ClickListener());
+		panel.add(addNewUser);
+		
 		JLabel text = new JLabel("Choose Your Profile", SwingConstants.CENTER);
-		
-		//button instantiation
-		b1 = new JButton("Jason");
-		b2 = new JButton("Haseeb");
-		b3 = new JButton("Patrick");
-		b4 = new JButton("Steve");
-		b5 = new JButton("Guest");
-		b6 = new JButton("Rusty");
-		b7 = new JButton("Isabel");
-		b8 = new JButton("Ary");
-		b9 = new JButton("Chris");
-		b10 = new JButton("New User");
-		
-		//add listener items to each button
-		b1.addActionListener(new ClickListener());
-		b2.addActionListener(new ClickListener());
-		b3.addActionListener(new ClickListener());
-		b4.addActionListener(new ClickListener());
-		b5.addActionListener(new ClickListener());
-		b6.addActionListener(new ClickListener());
-		b7.addActionListener(new ClickListener());
-		b8.addActionListener(new ClickListener());
-		b9.addActionListener(new ClickListener());
-		b10.addActionListener(new ClickListener());
 
 		//add buttons to frame
 		panel.add(text);
-		panel.add(b1);
-		panel.add(b2);
-		panel.add(b3);
-		panel.add(b4);
-		panel.add(b5);
-		panel.add(b6);
-		panel.add(b7);
-		panel.add(b8);
-		panel.add(b9);
-		panel.add(b10);
+		
 		//System.out.println(b1.getLabel()); // USE THIS TO GET PROFILE NAMES
 		
 		//set button parameters
 		text.setBounds(200,0,200,50);
-		b1.setBounds(150,50,100,50);
-		b2.setBounds(150,150,100,50);
-		b3.setBounds(150,250,100,50);
-		b4.setBounds(150,350,100,50);
-		b5.setBounds(150,450,100,50);
-		b6.setBounds(350,50,100,50);
-		b7.setBounds(350,150,100,50);
-		b8.setBounds(350,250,100,50);
-		b9.setBounds(350,350,100,50);
-		b10.setBounds(350,450,100,50);
+		addNewUser.setBounds(200,500,200,50);
 		
 		frame.add(panel);
 		panel.setVisible(true);
@@ -109,9 +138,28 @@ public class SignInScreen extends Screen{
 		public void actionPerformed(ActionEvent e){
 			
 			//check if action is button being clicked
-			if (e.getSource() == b1) {
+			if (e.getSource() == addNewUser) {
+				frame.remove(panel);
+				frame.repaint();
+				panel.removeAll();
+				newUserName = new JTextField(100);
+				panel.add(newUserName);
+				newUserName.setBounds(250,200,100,25);
 				
-				//if so, hide current screen
+				newUserButton = new JButton("Create New User");
+				newUserButton.setBounds(200,300,200,25);
+				newUserButton.addActionListener(new ClickListener());
+				panel.add(newUserButton);
+				
+				frame.add(panel);
+			}
+			else if (e.getSource() == newUserButton) {
+				User u = new User(newUserName.getText());
+				Arcade.getUserList().add(u);
+				goToSignIn();
+			}
+			else if (e.getSource() == b1) {
+				frame.remove(panel);
 				User u1 = new User();
 				u1.setName(b1.getText());
 				Arcade.setCurrentUser(u1);

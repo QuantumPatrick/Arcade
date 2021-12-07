@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import people.*;
 
 public class Arcade implements Serializable {
-	private ArrayList<User> userList;
+	private static ArrayList<User> userList;
 	
 	private static Leaderboard lb;
 	private static User currentUser;
@@ -33,7 +33,7 @@ public class Arcade implements Serializable {
 		return lb;
 	}
 	
-	public ArrayList<User> getUserList(){
+	public static ArrayList<User> getUserList(){
 		return userList;
 	}
 	
