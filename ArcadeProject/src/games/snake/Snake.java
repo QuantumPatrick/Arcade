@@ -19,6 +19,8 @@ import javax.swing.Timer;
 import games.Game;
 import games.snake.SnakeWindow.SnakePanel;
 import games.snake.SnakeWindow.SnakePanel.MyKeyAdapter;
+import people.User;
+import system.Leaderboard;
 
 public class Snake extends Game{
 	
@@ -36,12 +38,23 @@ public class Snake extends Game{
 	private int xDot; //What snake collects position
 	private int yDot;
 	private char direction = 'r';
-	
-	public Snake(String s) {
-		setName("Snake");
-	}
+	private User u = new User();
+	private Game g = new Game();
+	private Leaderboard l = new Leaderboard("Snake");
 	
 	public Snake(){
+		
+	}
+	
+	public void play(User u, Game g, Leaderboard l) {
+//		System.out.println("Playing Snake");
+//		s = new SnakeWindow();
+//		while(running) { //Waits for the game to finish to then keep moving on
+//			running = s.getIsRunning();
+//		}
+		this.u = u;
+		this.g = g;
+		this.l = l;
 		setIsRunning(true);
 		snakeFrame.add(new SnakePanel()); //Needs to be first
 		snakeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -50,17 +63,8 @@ public class Snake extends Game{
 		snakeFrame.setResizable(false);
 		snakeFrame.setLocationRelativeTo(null);
 		snakeFrame.setVisible(true);
+		
 	}
-	
-//	public void play() {
-////		System.out.println("Playing Snake");
-////		s = new SnakeWindow();
-////		while(running) { //Waits for the game to finish to then keep moving on
-////			running = s.getIsRunning();
-////		}
-//		
-//		
-//	}
 	
 	public int getScore() {
 		return score;
@@ -228,6 +232,8 @@ public class Snake extends Game{
 			if (option == JOptionPane.OK_OPTION) {
 				setIsRunning(false);
 				snakeFrame.dispose();
+				detectPersonalHigh(score, g, u);
+				detectHighScore(score, g, u, l);
 			}
 			
 		}

@@ -1,15 +1,18 @@
 package system;
 
 import java.util.ArrayList;
+import games.Game;
 
 import people.User;
 
 public class Leaderboard {
 
 	ArrayList<User> scores;
+	String game;
 	
-	public Leaderboard() {
+	public Leaderboard(String s) {
 		scores = new ArrayList<User>();
+		game = s;
 	}
 	
 	public ArrayList<User> getScorers() {

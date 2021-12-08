@@ -9,8 +9,9 @@ import screen.SignInScreen;
 public class Driver {
 	
 	public static void main(String args[]) {
-		Leaderboard lb = new Leaderboard();
-		Arcade arcade = new Arcade(lb);
+		Leaderboard lbTTT = new Leaderboard("TicTacToe");
+		Leaderboard lbSnake = new Leaderboard("Snake");
+		Arcade arcade = new Arcade(lbTTT, lbSnake);
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setSize(600,600);

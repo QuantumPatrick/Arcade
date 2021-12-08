@@ -11,7 +11,9 @@ import javax.swing.*;
 import java.util.Scanner;
 
 import games.Game;
+import people.User;
 import system.Arcade;
+import system.Leaderboard;
 
 public class TicTacToe extends Game implements ActionListener{
 
@@ -26,12 +28,18 @@ public class TicTacToe extends Game implements ActionListener{
 	private JPanel streakPanel = new JPanel();
 	private JButton[] buttons = new JButton[9];
 	private JLabel streakLabel = new JLabel();
+	private User u = new User();
+	private Game g = new Game();
+	private Leaderboard l = new Leaderboard("TicTacToe");
 	
 	public TicTacToe() {
 		
 	}
 	
-	public void play() {
+	public void play(User u, Game g, Leaderboard l) {
+		this.u = u;
+		this.g = g;
+		this.l = l;
 		frame.setTitle("TicTacToe");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setSize(600,600);
@@ -290,6 +298,8 @@ public class TicTacToe extends Game implements ActionListener{
 			numSelected = 99;
 			panel.removeAll();
 			frame.dispose();
+			detectPersonalHigh(streak, g, u);
+			detectHighScore(streak, g, u, l);
 		}
 	}
 	

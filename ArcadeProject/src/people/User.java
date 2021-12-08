@@ -42,7 +42,7 @@ public class User implements Serializable {
 	}
 	
 	public int getPersonalHigh(Game g) {
-		return 0;
+		return getHighScores().get(getGamesPlayed().indexOf(g));
 	}
 	
 	public void addGamesPlayed(Game g) {
@@ -59,5 +59,19 @@ public class User implements Serializable {
 	
 	public void saveScore(int score) {
 		this.setPersonalHigh(score);
+	}
+	
+	public Game getGame() {
+		
+	}
+	
+	public boolean checkGame(Game g) {
+		boolean result = false;
+		for(int i = 0; i < gamesPlayed.size();i++) {
+			if(g.equals(gamesPlayed.get(i))) {
+				result = true;
+			}
+		}
+		return result;
 	}
 }

@@ -1,6 +1,7 @@
 package screen;
 
 import java.awt.Font;
+import people.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,7 +21,7 @@ public class ProfileScreen extends Screen {
 	JLabel snakeScore = new JLabel();
 	JButton back = new JButton();
 	
-	public ProfileScreen(JFrame frame) {
+	public ProfileScreen(User u, JFrame frame) {
 		super(frame);
 
 		heading.setText("Profile Screen");

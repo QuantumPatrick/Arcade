@@ -35,6 +35,7 @@ public class LibraryScreen extends Screen {
 		snake = new Snake();
 		snake.setName("Snake");
 		
+		u = new User();
 		this.u = Arcade.getCurrentUser(); //To know what user will play the games
 		
 		lib.addGame(ttt);
@@ -83,23 +84,32 @@ public class LibraryScreen extends Screen {
 			
 			if (source.equals(tttButton)) { //FIXME: Still needs to implemented
 				//lib.playGame(ttt, u, Arcade.getLeaderboard());
-				ttt.play();
-				while(ttt.getIsRunning()) {//Waits for the game to finish to then keep moving on
-					
+				if (u.getGamesPlayed().isEmpty() || u.checkGame(ttt) == false) { //Checks to see if user has not played games or not played the game before
+					u.addGamesPlayed(ttt);
+					u.setPersonalHigh(0);
 				}
+				
+				ttt.play(u, ttt, Arcade.getLeaderboard("TicTacToe"));
+				
 			}
 			else if (source.equals(snakeButton)) {
 				//lib.playGame(snake, u, Arcade.getLeaderboard());
-				snake = new Snake();
-				//snake.play();
-//				System.out.println(ss.getIsRunning());
-				while(snake.getIsRunning()) {//Waits for the game to finish to then keep moving on
-					System.out.println("Loop");
+				
+				if (u.getGamesPlayed().isEmpty() || u.checkGame(snake) == false) { //Checks to see if user has not played games or not played the game before
+					u.addGamesPlayed(snake);
+					u.setPersonalHigh(0);
 				}
+				
+				snake.play(u, snake, Arcade.getLeaderboard("Snake"));
+//				System.out.println(ss.getIsRunning());
+				
 //				System.out.println("Exit");
 //				
 //				System.out.println("Exit");
 //				snake = ss;
+				
+				//do snake.play
+				//back button sends values to leaderboard
 				
 			}
 			else if (source.equals(backButton)) {

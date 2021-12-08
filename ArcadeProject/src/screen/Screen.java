@@ -29,7 +29,7 @@ public class Screen extends JFrame{ //Still need to be abstract?
 	}
 
 	public void goToProfile() {
-		new ProfileScreen(frame);
+		new ProfileScreen(currentUser,frame);
 	}
 
 	public void goToLeaderboard() {

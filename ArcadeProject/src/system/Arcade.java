@@ -13,12 +13,14 @@ import people.*;
 public class Arcade implements Serializable {
 	private static ArrayList<User> userList;
 	
-	private static Leaderboard lb;
+	private static Leaderboard lbTTT;
+	private static Leaderboard lbSnake;
 	private static User currentUser;
 
-	public Arcade(Leaderboard lb1) {
+	public Arcade(Leaderboard lbTTT, Leaderboard lbSnake) {
 		userList = new ArrayList<User>();
-		lb = lb1;
+		this.lbTTT = lbTTT;
+		this.lbSnake = lbSnake;
 	}
 	
 	public static void setCurrentUser(User userIn) {
@@ -29,8 +31,14 @@ public class Arcade implements Serializable {
 		return currentUser;
 	}
 	
-	public static Leaderboard getLeaderboard() {
-		return lb;
+	public static Leaderboard getLeaderboard(String s) {
+		if (s.equals("TicTacToe")) {
+			return lbTTT;
+		} else if (s.equals("Snake")) {
+			return lbSnake;
+		} else {
+			return null;
+		}
 	}
 	
 	public static ArrayList<User> getUserList(){
