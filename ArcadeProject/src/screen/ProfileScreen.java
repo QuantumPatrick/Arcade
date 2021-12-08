@@ -32,12 +32,12 @@ public class ProfileScreen extends Screen {
 		
 		name.setText(Arcade.getCurrentUser().getName());
 		if(u.getGame("TicTacToe") != null) {
-			tttScore.setText("Tic-Tac-Toe Score: "+ u.getPersonalHigh(u.getGame("TicTacToe"))+" points");
+			tttScore.setText("Tic-Tac-Toe Score: "+ u.getTicTacToeHighScore()+" points");
 		} else {
 			tttScore.setText("Tic-Tac-Toe Score: 0 points");
 		}
 		if(u.getGame("Snake") != null) {
-			snakeScore.setText("Snake Score: "+ u.getPersonalHigh(u.getGame("Snake")) + " points");
+			snakeScore.setText("Snake Score: "+ u.getSnakeHighScore() + " points");
 		} else {
 			snakeScore.setText("Snake Score: 0 points");
 		}

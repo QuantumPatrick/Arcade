@@ -255,6 +255,8 @@ public class TicTacToe extends Game implements ActionListener{
 			} else if(option == JOptionPane.NO_OPTION){
 				panel.removeAll();
 				frame.dispose();
+				detectPersonalHigh(streak, g, u);//test
+				detectHighScore(streak, g, u, l);//test
 			}
 		}
 
@@ -277,6 +279,8 @@ public class TicTacToe extends Game implements ActionListener{
 			numSelected = 99;
 			panel.removeAll();
 			frame.dispose();
+			detectPersonalHigh(streak, g, u);//test
+			detectHighScore(streak, g, u, l);//test
 		}
 	}
 	

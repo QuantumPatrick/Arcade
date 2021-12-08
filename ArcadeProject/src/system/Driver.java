@@ -25,7 +25,7 @@ public class Driver {
 		
 		frame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				Arcade.saveArcadeState(arcade);
+			//	Arcade.saveArcadeState(arcade);
 				JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?");
 			}
 		});

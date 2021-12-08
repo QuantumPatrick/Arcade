@@ -12,6 +12,7 @@ public class User implements Serializable {
 	protected ArrayList<Integer> highScores; // FIXME: data system for number + game bundled together?
 	protected ArrayList<Game> gamesPlayed;
 	protected int snakeHighScore;
+	protected int ticTacToeHighScore;
 	
 	// constructors
 	public User() {
@@ -29,6 +30,13 @@ public class User implements Serializable {
 	}
 	public void setSnakeHighScore(int s) {
 		this.snakeHighScore = s;
+	}
+	
+	public int getTicTacToeHighScore() {
+		return this.ticTacToeHighScore;
+	}
+	public void setTicTacToeHighScore(int t) {
+		this.ticTacToeHighScore = t;
 	}
 	
 	// methods
@@ -68,6 +76,7 @@ public class User implements Serializable {
 	public void saveScore(int score) {
 		this.setPersonalHigh(score);
 	}
+	//	(g.getClass().getName().equals("games.tictactoe.TicTacToe")){
 	
 	public Game getGame(String s) {
 		Game g = new Game();
