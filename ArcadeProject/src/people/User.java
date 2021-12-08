@@ -11,6 +11,7 @@ public class User implements Serializable {
 	protected boolean isGuest; // FIXME: add to UML
 	protected ArrayList<Integer> highScores; // FIXME: data system for number + game bundled together?
 	protected ArrayList<Game> gamesPlayed;
+	protected int snakeHighScore;
 	
 	// constructors
 	public User() {
@@ -21,6 +22,13 @@ public class User implements Serializable {
 	
 	public User(String name) { //FIXME: does this need to be declared as public?
 		this.name = name;
+	}
+	
+	public int getSnakeHighScore() {
+		return this.snakeHighScore;
+	}
+	public void setSnakeHighScore(int s) {
+		this.snakeHighScore = s;
 	}
 	
 	// methods
@@ -61,7 +69,14 @@ public class User implements Serializable {
 		this.setPersonalHigh(score);
 	}
 	
-	public Game getGame() {
+	public Game getGame(String s) {
+		Game g = new Game();
+		for(int i = 0; i < gamesPlayed.size();i++) {
+			if(s.equals(gamesPlayed.get(i).getName())) {
+				g = gamesPlayed.get(i);
+			}
+		}
+		return g;
 		
 	}
 	
