@@ -30,17 +30,19 @@ public class ProfileScreen extends Screen {
 		
 		back.setText("Back");
 		
+		//	(g.getClass().getName().equals("games.tictactoe.TicTacToe")){
+		
 		name.setText(Arcade.getCurrentUser().getName());
-		if(u.getGame("TicTacToe") != null) {
+		//if(u.getGame("TicTacToe") != null) {
 			tttScore.setText("Tic-Tac-Toe Score: "+ u.getTicTacToeHighScore()+" points");
-		} else {
-			tttScore.setText("Tic-Tac-Toe Score: 0 points");
-		}
-		if(u.getGame("Snake") != null) {
+		//} else {
+		//	tttScore.setText("Tic-Tac-Toe Score: 0 points");
+		//}
+		//if(u.getGame("Snake") != null) {
 			snakeScore.setText("Snake Score: "+ u.getSnakeHighScore() + " points");
-		} else {
-			snakeScore.setText("Snake Score: 0 points");
-		}
+		//} else {
+		//	snakeScore.setText("Snake Score: 0 points");
+		//}
 		back.setBounds(25,25,100,50);
 		
 		heading.setBounds(200, 50, 400, 100);

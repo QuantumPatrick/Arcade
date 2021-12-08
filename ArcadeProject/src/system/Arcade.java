@@ -15,7 +15,7 @@ public class Arcade implements Serializable {
 	
 	private static Leaderboard lbTTT;
 	private static Leaderboard lbSnake;
-	private static User currentUser = new User();
+	private static User currentUser;
 
 	public Arcade(Leaderboard lbTTT, Leaderboard lbSnake) {
 		userList = new ArrayList<User>();

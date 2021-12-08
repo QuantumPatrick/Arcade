@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import people.User;
+import system.Arcade;
 
 public class Screen extends JFrame{ //Still need to be abstract?
 	
@@ -25,11 +26,11 @@ public class Screen extends JFrame{ //Still need to be abstract?
 	}
 	
 	public void goToLibrary() { //FIXME: Still needs to add leaderboardscreen
-		new LibraryScreen(currentUser,frame);  
+		new LibraryScreen(frame);  
 	}
 
 	public void goToProfile() {
-		new ProfileScreen(currentUser,frame);
+		new ProfileScreen(Arcade.getCurrentUser(),frame);
 	}
 
 	public void goToLeaderboard() {

@@ -101,7 +101,8 @@ public class Game {
 			} 
 
 			else {
-				for (int i = 0; i < l.getScorers().size(); i++) {
+				int leaderboardSize = l.getScorers().size();
+				for (int i = 0; i < leaderboardSize; i++) {
 					if ((rec > l.getScorers().get(i).getSnakeHighScore())) {
 						JOptionPane.showConfirmDialog(null, "New high score of " + rec + "!", "New High Score", JOptionPane.PLAIN_MESSAGE);
 						System.out.println("New high score!");
@@ -122,7 +123,8 @@ public class Game {
 			} 
 
 			else {
-				for (int i = 0; i < l.getScorers().size(); i++) {
+				int leaderboardSize = l.getScorers().size();
+				for (int i = 0; i <leaderboardSize; i++) {
 					if ((rec > l.getScorers().get(i).getTicTacToeHighScore())) {
 						JOptionPane.showConfirmDialog(null, "New high score of " + rec + "!", "New High Score", JOptionPane.PLAIN_MESSAGE);
 						System.out.println("New high score!");

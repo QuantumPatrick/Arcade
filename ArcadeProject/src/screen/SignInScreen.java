@@ -169,65 +169,65 @@ public class SignInScreen extends Screen{
 			}
 			else if (e.getSource() == b2) {
 				frame.remove(panel);
-				User u1 = new User();
-				u1.setName(b2.getText());
-				Arcade.setCurrentUser(u1);
+				User u2 = new User();
+				u2.setName(b2.getText());
+				Arcade.setCurrentUser(u2);
 				handleToHome();
 			}
 			else if (e.getSource() == b3) {
 				frame.remove(panel);
-				User u1 = new User();
-				u1.setName(b3.getText());
-				Arcade.setCurrentUser(u1);
+				User u3 = new User();
+				u3.setName(b3.getText());
+				Arcade.setCurrentUser(u3);
 				handleToHome();
 			}
 			else if (e.getSource() == b4) {
 				frame.remove(panel);
-				User u1 = new User();
-				u1.setName(b4.getText());
-				Arcade.setCurrentUser(u1);
+				User u4 = new User();
+				u4.setName(b4.getText());
+				Arcade.setCurrentUser(u4);
 				handleToHome();
 			}
 			else if (e.getSource() == b5) {
 				frame.remove(panel);
-				User u1 = new User();
-				u1.setName(b5.getText());
-				Arcade.setCurrentUser(u1);
+				User u5 = new User();
+				u5.setName(b5.getText());
+				Arcade.setCurrentUser(u5);
 				handleToHome();
 			}
 			else if (e.getSource() == b6) {
 				frame.remove(panel);
-				User u1 = new User();
-				u1.setName(b6.getText());
-				Arcade.setCurrentUser(u1);
+				User u6 = new User();
+				u6.setName(b6.getText());
+				Arcade.setCurrentUser(u6);
 				handleToHome();
 			}
 			else if (e.getSource() == b7) {
 				frame.remove(panel);
-				User u1 = new User();
-				u1.setName(b7.getText());
-				Arcade.setCurrentUser(u1);
+				User u7 = new User();
+				u7.setName(b7.getText());
+				Arcade.setCurrentUser(u7);
 				handleToHome();
 			}
 			else if (e.getSource() == b8) {
 				frame.remove(panel);
-				User u1 = new User();
-				u1.setName(b8.getText());
-				Arcade.setCurrentUser(u1);
+				User u8 = new User();
+				u8.setName(b8.getText());
+				Arcade.setCurrentUser(u8);
 				handleToHome();
 			}
 			else if (e.getSource() == b9) {
 				frame.remove(panel);
-				User u1 = new User();
-				u1.setName(b9.getText());
-				Arcade.setCurrentUser(u1);
+				User u9 = new User();
+				u9.setName(b9.getText());
+				Arcade.setCurrentUser(u9);
 				handleToHome();
 			}
 			else if (e.getSource() == b10) {
 				frame.remove(panel);
-				User u1 = new User();
-				u1.setName(b10.getText());
-				Arcade.setCurrentUser(u1);
+				User u10 = new User();
+				u10.setName(b10.getText());
+				Arcade.setCurrentUser(u10);
 				handleToHome();
 			}
 		}
