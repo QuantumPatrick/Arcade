@@ -9,8 +9,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 import games.Game;
 
@@ -30,6 +33,8 @@ public class Impossible extends Game {
 		frame.repaint();
 		frame.setSize(600,600);
 		frame.setBackground(Color.blue);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		running = true;
 	}
 	
@@ -43,8 +48,13 @@ public class Impossible extends Game {
 	
 	public class ScreenCanvas extends Canvas implements KeyListener {
 	
+		Random random;
+		ArrayList<Tower> towers;
+		
 		public ScreenCanvas(){
 			this.addKeyListener(this);
+	    	random = new Random();
+	    	towers = new ArrayList<Tower>();
 		}
 
 		//set up a function to draw the shapes
@@ -64,6 +74,36 @@ public class Impossible extends Game {
 	    
 	    public void update() {
 	    	repaint();
+	    }
+	    
+	    public class Tower {
+	    	
+	    	int gapLoc;
+			int topEnd;
+			int bottomStart;
+			
+			int distance;
+	    	
+	    	Tower(){
+	    		gapLoc = Math.abs(random.nextInt()) % 38;
+	    		System.out.println(gapLoc);
+				topEnd = gapLoc * 10;
+				bottomStart = gapLoc * 10 + 120;
+	    	}
+	    	
+	    	public void updateDistance(){
+	    		this.distance -= 10;
+	    	}
+	    	
+	    	public Integer getTopHeight() {
+	    		return this.topEnd;
+	    	}
+	    	public Integer getBottomHeight() {
+	    		return 550-this.bottomStart;
+	    	}
+	    	public Integer getDistance() {
+	    		return this.distance;
+	    	}
 	    }
 	    
 	    public void moveUp() {
@@ -92,7 +132,7 @@ public class Impossible extends Game {
 			if (e.getKeyCode() == KeyEvent.VK_UP) {
 				moveUp();
 			}
-			System.out.println("recognized");
+			//System.out.println("recognized");
 			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 				moveDown();
 			} 
