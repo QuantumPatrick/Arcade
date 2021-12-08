@@ -1,6 +1,7 @@
 package games.snake;
 
 import java.awt.Color;
+import games.Game;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -15,7 +16,8 @@ import javax.swing.*;
 
 import games.snake.SnakeWindow.SnakePanel.MyKeyAdapter;
 
-public class SnakeWindow extends JFrame{
+public class SnakeWindow{
+	JFrame snakeFrame = new JFrame();
 	private int screenWidth = 600; //Panel width
 	private int screenHeight = 600; //Panel height
 	private int boxSize = 25; //Size of box (individual unit of grid)
@@ -29,22 +31,27 @@ public class SnakeWindow extends JFrame{
 	private int xDot; //What snake collects position
 	private int yDot;
 	private char direction = 'r';
+	private boolean isRunning;
 	
-	SnakePanel sp;
 	
 	public SnakeWindow(){
-		sp = new SnakePanel();
-		this.add(sp); //Needs to be first
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		this.setTitle("Snake");
-		this.pack(); //Alternative to setSize()
-		this.setResizable(false);
-		this.setVisible(true);
-		this.setLocationRelativeTo(null);
+		isRunning = true;
+		snakeFrame.add(new SnakePanel()); //Needs to be first
+		snakeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		snakeFrame.setTitle("Snake");
+		snakeFrame.pack(); //Alternative to setSize()
+		snakeFrame.setResizable(false);
+		snakeFrame.setLocationRelativeTo(null);
+		snakeFrame.setVisible(true);
+		System.out.println("SnakeWindow");
 	}
 	
 	public int getScore() {
 		return score;
+	}
+	
+	public boolean getIsRunning() {
+		return isRunning;
 	}
 	
 	public class SnakePanel extends JPanel implements ActionListener{
@@ -53,15 +60,18 @@ public class SnakeWindow extends JFrame{
 		Random random;
 		
 		public SnakePanel() {
+			System.out.println("SnakePanel");
 			random = new Random();
 			this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //Dont use set size since preferred size can be used when there is a parent layout (snakeWindow)
 			this.setBackground(Color.BLACK);
+			System.out.println(this.getBackground());
 			this.setFocusable(true);
 			this.addKeyListener(new MyKeyAdapter());
 			start();
 		}
 		
 		public void start() {
+			System.out.println("SnakePanel Start");
 			running = true;
 			randomDot();
 			timer = new Timer(delay, this);
@@ -201,9 +211,11 @@ public class SnakeWindow extends JFrame{
 			JLabel gameOverLabel = new JLabel("Game Over");
 			Object[] p = {gameOverLabel};
 			
+			
 			int option = JOptionPane.showConfirmDialog(null, p, "Game over", JOptionPane.PLAIN_MESSAGE);
 			if (option == JOptionPane.OK_OPTION) {
-				super.removeAll();
+				isRunning = false;
+				snakeFrame.dispose();
 			}
 			
 		}
