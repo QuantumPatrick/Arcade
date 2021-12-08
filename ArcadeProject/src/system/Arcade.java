@@ -41,6 +41,15 @@ public class Arcade implements Serializable {
 		}
 	}
 	
+	public static User checkList(String userName) {
+		for (User i: userList) {
+			if (i.getName().equals(userName) && ((i.getSnakeHighScore() != 0) || (i.getTicTacToeHighScore() != 0))) {
+				return i;
+			}
+		}
+		return null;
+	}
+	
 	public static ArrayList<User> getUserList(){
 		return userList;
 	}
