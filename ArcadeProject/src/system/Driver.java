@@ -14,7 +14,7 @@ public class Driver {
 		Leaderboard lbSnake = new Leaderboard("Snake");
 		
 		Arcade arcade = new Arcade(lbTTT, lbSnake);
-		arcade = Arcade.loadArcadeState();
+		//arcade = Arcade.loadArcadeState();
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setSize(600,600);
