@@ -62,14 +62,14 @@ public class Game {
 	}
 	
 	public void detectPersonalHigh(int rec, Game g, User u) {
-		if (rec > u.getSnakeHighScore()) {
+		if (rec >= u.getSnakeHighScore()) {
 			System.out.println("New personal high!");
 			System.out.println("Current personal score is: " + Arcade.getCurrentUser().getSnakeHighScore());
 			System.out.println("Current personal score is: " + rec);
 			int option = JOptionPane.showConfirmDialog(null, "New personal high of " + rec + "!", "New Personal High", JOptionPane.PLAIN_MESSAGE);
-			if (option == JOptionPane.OK_OPTION) {
-				u.setSnakeHighScore(rec);
-			}
+			//if (option == JOptionPane.OK_OPTION) {
+			//	u.setSnakeHighScore(rec);
+			//}
 			System.out.println("New personal high is: " + u.getSnakeHighScore());
 			System.out.println("Current User: " + Arcade.getCurrentUser().getSnakeHighScore());
 		}
@@ -89,6 +89,7 @@ public class Game {
 					System.out.println("New high score!");
 					System.out.println("Bazinga");
 					l.getScorers().add(i, u);
+					u.setSnakeHighScore(rec);//test
 				}
 			}
 		}

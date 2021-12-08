@@ -239,6 +239,7 @@ public class Snake extends Game{
 				snakeFrame.dispose();
 				detectPersonalHigh(score, g, u);
 				detectHighScore(score, g, u, l);
+				
 			}
 			
 		}

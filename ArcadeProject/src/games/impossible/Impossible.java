@@ -128,16 +128,19 @@ public class Impossible extends Game {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
-			if (e.getKeyCode() == KeyEvent.VK_UP) {
-				moveUp();
+			while(running) {
+				//if (java.time.LocalTime.now().getNano())
+				// TODO Auto-generated method stub
+				if (e.getKeyCode() == KeyEvent.VK_UP) {
+					moveUp();
+				}
+				//System.out.println("recognized");
+				if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+					moveDown();
+				} 
+				//System.out.println("recognized");
+				update();
 			}
-			//System.out.println("recognized");
-			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-				moveDown();
-			} 
-			//System.out.println("recognized");
-			update();
 		}
 
 		@Override
