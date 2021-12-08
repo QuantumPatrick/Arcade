@@ -32,8 +32,7 @@ public class LibraryScreen extends Screen {
 		//add games to library
 		ttt = new TicTacToe();
 		ttt.setName("TicTacToe");
-		snake = new Snake();
-		snake.setName("Snake");
+		snake = new Snake("Snake");
 		
 		u = new User();
 		this.u = Arcade.getCurrentUser(); //To know what user will play the games
@@ -95,12 +94,14 @@ public class LibraryScreen extends Screen {
 			else if (source.equals(snakeButton)) {
 				//lib.playGame(snake, u, Arcade.getLeaderboard());
 				
-				if (u.getGamesPlayed().isEmpty() || u.checkGame(snake) == false) { //Checks to see if user has not played games or not played the game before
-					u.addGamesPlayed(snake);
-					u.setPersonalHigh(0);
-				}
+				//if(u.checkGame(snake) == false) {
+					if (u.getGamesPlayed().isEmpty()){ //Checks to see if user has not played games or not played the game before
+						u.addGamesPlayed(snake);
+						u.setPersonalHigh(0);
+					}
+				//}
+				snake = new Snake(u, snake, Arcade.getLeaderboard("Snake"));
 				
-				snake.play(u, snake, Arcade.getLeaderboard("Snake"));
 //				System.out.println(ss.getIsRunning());
 				
 //				System.out.println("Exit");

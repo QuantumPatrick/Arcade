@@ -7,7 +7,7 @@ import people.User;
 
 public class Screen extends JFrame{ //Still need to be abstract?
 	
-	protected User currentUser;
+	protected User currentUser = new User();
 	public JFrame frame;
 	
 	public Screen(JFrame frame) {

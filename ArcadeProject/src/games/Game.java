@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import system.Arcade;
 import system.Leaderboard;
 
 import people.Player;
@@ -61,10 +62,16 @@ public class Game {
 	}
 	
 	public void detectPersonalHigh(int rec, Game g, User u) {
-		if (rec >= u.getHighScores().get(u.getGamesPlayed().indexOf(g))) {
+		if (rec > u.getSnakeHighScore()) {
 			System.out.println("New personal high!");
-			JOptionPane.showConfirmDialog(null, "New personal high of " + rec + "!", "New Personal High", JOptionPane.PLAIN_MESSAGE);
-			u.getHighScores().set(u.getGamesPlayed().indexOf(g), g.getScore());
+			System.out.println("Current personal score is: " + Arcade.getCurrentUser().getSnakeHighScore());
+			System.out.println("Current personal score is: " + rec);
+			int option = JOptionPane.showConfirmDialog(null, "New personal high of " + rec + "!", "New Personal High", JOptionPane.PLAIN_MESSAGE);
+			if (option == JOptionPane.OK_OPTION) {
+				u.setSnakeHighScore(rec);
+			}
+			System.out.println("New personal high is: " + u.getSnakeHighScore());
+			System.out.println("Current User: " + Arcade.getCurrentUser().getSnakeHighScore());
 		}
 	}
 	
@@ -77,9 +84,10 @@ public class Game {
 		
 		else {
 			for (int i = 0; i < l.getScorers().size(); i++) {
-				if ((rec >= l.getScorers().get(i).getHighScores().get(l.getScorers().get(i).getGamesPlayed().indexOf(g)))) {
-					JOptionPane.showConfirmDialog(null, "New high score of " + rec + "!", "New Personal Score", JOptionPane.PLAIN_MESSAGE);
+				if ((rec > l.getScorers().get(i).getSnakeHighScore())) {
+					JOptionPane.showConfirmDialog(null, "New high score of " + rec + "!", "New High Score", JOptionPane.PLAIN_MESSAGE);
 					System.out.println("New high score!");
+					System.out.println("Bazinga");
 					l.getScorers().add(i, u);
 				}
 			}
