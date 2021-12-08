@@ -38,23 +38,19 @@ public class Snake extends Game{
 	private int xDot; //What snake collects position
 	private int yDot;
 	private char direction = 'r';
-	private User u = new User();
-	private Game g = new Game();
-	private Leaderboard l = new Leaderboard("Snake");
+	private User u;
+	private Game g;
+	private Leaderboard l;
 	
-	public Snake(){
-		
+	public Snake(String s){
+		setName(s);
 	}
 	
-	public void play(User u, Game g, Leaderboard l) {
-//		System.out.println("Playing Snake");
-//		s = new SnakeWindow();
-//		while(running) { //Waits for the game to finish to then keep moving on
-//			running = s.getIsRunning();
-//		}
+	public Snake(User u, Game g, Leaderboard l) {
 		this.u = u;
 		this.g = g;
 		this.l = l;
+		score = 0;
 		setIsRunning(true);
 		snakeFrame.add(new SnakePanel()); //Needs to be first
 		snakeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -63,6 +59,15 @@ public class Snake extends Game{
 		snakeFrame.setResizable(false);
 		snakeFrame.setLocationRelativeTo(null);
 		snakeFrame.setVisible(true);
+	}
+	
+	public void play(User u, Game g, Leaderboard l) {
+//		System.out.println("Playing Snake");
+//		s = new SnakeWindow();
+//		while(running) { //Waits for the game to finish to then keep moving on
+//			running = s.getIsRunning();
+//		}
+		
 		
 	}
 	

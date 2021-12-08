@@ -20,19 +20,27 @@ public class ProfileScreen extends Screen {
 	JLabel tttScore = new JLabel();
 	JLabel snakeScore = new JLabel();
 	JButton back = new JButton();
+	private User u = new User();
 	
 	public ProfileScreen(User u, JFrame frame) {
 		super(frame);
-
+		this.u = u;
 		heading.setText("Profile Screen");
 		heading.setFont(new Font("Comic Sans", Font.PLAIN, 30));
 		
 		back.setText("Back");
 		
 		name.setText(Arcade.getCurrentUser().getName());
-		tttScore.setText("Tic-Tac-Toe Score: 0 points");
-		snakeScore.setText("Snake Score: 0 points");
-	
+		if(u.getGame("TicTacToe") != null) {
+			tttScore.setText("Tic-Tac-Toe Score: "+ u.getPersonalHigh(u.getGame("TicTacToe"))+" points");
+		} else {
+			tttScore.setText("Tic-Tac-Toe Score: 0 points");
+		}
+		if(u.getGame("Snake") != null) {
+			snakeScore.setText("Snake Score: "+ u.getPersonalHigh(u.getGame("Snake")) + " points");
+		} else {
+			snakeScore.setText("Snake Score: 0 points");
+		}
 		back.setBounds(25,25,100,50);
 		
 		heading.setBounds(200, 50, 400, 100);
