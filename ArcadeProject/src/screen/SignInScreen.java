@@ -156,6 +156,8 @@ public class SignInScreen extends Screen{
 			else if (e.getSource() == newUserButton) {
 				User u = new User(newUserName.getText());
 				Arcade.getUserList().add(u);
+				frame.getContentPane().removeAll();
+				frame.repaint();
 				goToSignIn();
 			}
 			else if (e.getSource() == b1) {
