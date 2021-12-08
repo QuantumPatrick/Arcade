@@ -10,9 +10,11 @@ public class Game {
 	private String name;
 	private ArrayList<Player> topScorers;
 	private User currentUser;
+	private boolean isRunning;
 	
 	public Game() {
 		this.name = "";
+		isRunning = true;
 		topScorers = new ArrayList<Player>();
 	}
 	
@@ -23,9 +25,9 @@ public class Game {
 		this.name = name;
 	}
 	
-	public void play() { //Gets overrided
-		System.out.println("Launching game");
-	}
+//	public void play() { //Gets overrided
+//		System.out.println("Launching game");
+//	}
 	
 	public void playAgain() {
 		System.out.println("Playing again");
@@ -44,5 +46,13 @@ public class Game {
 		int score = this.getScore();
 		
 		this.currentUser.saveScore(score);
+	}
+	
+	public boolean getIsRunning() {
+		return isRunning;
+	}
+	
+	public void setIsRunning(boolean b) {
+		isRunning = b;
 	}
 }

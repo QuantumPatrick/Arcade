@@ -84,10 +84,22 @@ public class LibraryScreen extends Screen {
 			if (source.equals(tttButton)) { //FIXME: Still needs to implemented
 				//lib.playGame(ttt, u, Arcade.getLeaderboard());
 				ttt.play();
+				while(ttt.getIsRunning()) {//Waits for the game to finish to then keep moving on
+					
+				}
 			}
 			else if (source.equals(snakeButton)) {
 				//lib.playGame(snake, u, Arcade.getLeaderboard());
-				snake.play();
+				snake = new Snake();
+				//snake.play();
+//				System.out.println(ss.getIsRunning());
+				while(snake.getIsRunning()) {//Waits for the game to finish to then keep moving on
+					System.out.println("Loop");
+				}
+//				System.out.println("Exit");
+//				
+//				System.out.println("Exit");
+//				snake = ss;
 				
 			}
 			else if (source.equals(backButton)) {

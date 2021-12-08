@@ -22,8 +22,6 @@ import games.snake.SnakeWindow.SnakePanel.MyKeyAdapter;
 
 public class Snake extends Game{
 	
-	private boolean running = true;
-	
 	JFrame snakeFrame = new JFrame();
 	private int screenWidth = 600; //Panel width
 	private int screenHeight = 600; //Panel height
@@ -38,21 +36,13 @@ public class Snake extends Game{
 	private int xDot; //What snake collects position
 	private int yDot;
 	private char direction = 'r';
-	private boolean isRunning;
 	
-	
-	public Snake(){
-		
+	public Snake(String s) {
+		setName("Snake");
 	}
 	
-	public void play() {
-//		System.out.println("Playing Snake");
-//		s = new SnakeWindow();
-//		while(running) { //Waits for the game to finish to then keep moving on
-//			running = s.getIsRunning();
-//		}
-		
-		isRunning = true;
+	public Snake(){
+		setIsRunning(true);
 		snakeFrame.add(new SnakePanel()); //Needs to be first
 		snakeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		snakeFrame.setTitle("Snake");
@@ -60,30 +50,32 @@ public class Snake extends Game{
 		snakeFrame.setResizable(false);
 		snakeFrame.setLocationRelativeTo(null);
 		snakeFrame.setVisible(true);
-		System.out.println("SnakeWindow");
 	}
+	
+//	public void play() {
+////		System.out.println("Playing Snake");
+////		s = new SnakeWindow();
+////		while(running) { //Waits for the game to finish to then keep moving on
+////			running = s.getIsRunning();
+////		}
+//		
+//		
+//	}
 	
 	public int getScore() {
 		return score;
 	}
 	
-	public boolean getIsRunning() {
-		return isRunning;
-	}
-	
-	
-	
-	public void playAgain() {
-		running = true;
-		play();
-	}
+//	public void playAgain() {
+//		play();
+//	}
 	
 	public void reset() {
 		
 	}
 	
 	public class SnakePanel extends JPanel implements ActionListener{
-		boolean running = false;
+		boolean running = true;
 		Timer timer;
 		Random random;
 		
@@ -92,14 +84,12 @@ public class Snake extends Game{
 			random = new Random();
 			this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //Dont use set size since preferred size can be used when there is a parent layout (snakeWindow)
 			this.setBackground(Color.BLACK);
-			System.out.println(this.getBackground());
 			this.setFocusable(true);
 			this.addKeyListener(new MyKeyAdapter());
 			start();
 		}
 		
 		public void start() {
-			System.out.println("SnakePanel Start");
 			running = true;
 			randomDot();
 			timer = new Timer(delay, this);
@@ -182,17 +172,11 @@ public class Snake extends Game{
 			
 			if(x[0] < 0) {
 				running = false;
-			}
-			
-			if(x[0] > screenWidth-boxSize) {
+			}else if(x[0] > screenWidth-boxSize) {
 				running = false;
-			}
-			
-			if(y[0] < 0) {
+			}else if(y[0] < 0) {
 				running = false;
-			}
-			
-			if(y[0] > screenHeight-boxSize) {
+			}else if(y[0] > screenHeight-boxSize) {
 				running = false;
 			}
 			
@@ -242,7 +226,7 @@ public class Snake extends Game{
 			
 			int option = JOptionPane.showConfirmDialog(null, p, "Game over", JOptionPane.PLAIN_MESSAGE);
 			if (option == JOptionPane.OK_OPTION) {
-				isRunning = false;
+				setIsRunning(false);
 				snakeFrame.dispose();
 			}
 			
